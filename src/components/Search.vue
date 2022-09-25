@@ -3,6 +3,7 @@
     <!-- v-model : 양방향 데이터 바인딩-->
     <input 
       v-model="title"
+      @keyup.enter="apply"
       class="form-control"
       type="text"
       placeholder="영화 시리즈 등 겁색">
@@ -27,10 +28,17 @@
         </option>
       </select>
     </div>
+    <button 
+      class="btn btn-primary"
+      @click="apply">
+      검색
+    </button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data(){
     return{
@@ -62,6 +70,16 @@ export default {
         }
       ]
     }
+  },
+  methods:{
+    // 비동기로 작동해야함
+    async apply(){
+      // 영화 검색 기능
+      // 엔터키 눌렀을때에도 가능하게
+      const OMDB_API_KEY = '7035c60c';
+      const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${this.title}&type=${this.type}&y=${this.year}&page=1`);
+      console.log(res);
+    }
   }
 }
 </script>
@@ -85,6 +103,13 @@ export default {
         margin-right: 0;
       }
     }
+  }
+  .btn{
+    width: 120px;
+    height: 50px;
+    font-weight: 700;
+    flex-shrink: 0; 
+    // flex-shrink: 1; 인경우 비율이 감소하니깐 0으로 변경해서 절대 감소하지 않겟다고 설정
   }
 }
 </style>
