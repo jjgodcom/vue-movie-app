@@ -6,7 +6,7 @@
       @keyup.enter="apply"
       class="form-control"
       type="text"
-      placeholder="영화 시리즈 등 겁색">
+      placeholder="영화 시리즈 등 검색">
     <div class="selects">
       <!-- v-model="$data[filter.name]" -->
       <!-- 양방향 데이터 바인딩 하기 위해 $data 속성을 사용 -->

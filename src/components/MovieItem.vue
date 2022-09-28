@@ -1,9 +1,4 @@
 <template>
-  <!-- <div>{{movie.Title}}</div>
-  <div>{{movie.Year}}</div>
-  <div>{{movie.imdbID}}</div>
-  <div>{{movie.Type}}</div>
-  <div>{{movie.Poster}}</div> -->
   <div
    class="movie"
    :style="{backgroundImage:`url(${movie.Poster})`}" >
