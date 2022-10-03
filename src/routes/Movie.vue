@@ -18,13 +18,11 @@
         fixed>
       </Loader>
     </template>
-    
-
     <div
       v-else
       class="movie-details">
       <div
-        :style="{backgroundImage:`url(${theMovie.Poster})`}" 
+        :style="{backgroundImage:`url(${reqestDiffSizeImage(theMovie.Poster)})`}" 
         class="poster"></div>
       <div class="specs">
         <div class="title">
@@ -91,6 +89,11 @@ export default {
       },
       loading(){
         return this.$store.state.movie.loading
+      }
+    },
+    methods:{
+      reqestDiffSizeImage(url, size = 700){
+        return url.replace('SX300', `SX${size}`)
       }
     }
 }
