@@ -23,7 +23,12 @@
       class="movie-details">
       <div
         :style="{backgroundImage:`url(${reqestDiffSizeImage(theMovie.Poster)})`}" 
-        class="poster"></div>
+        class="poster">
+        <Loader
+          v-if="imageLoading"
+          absolute>
+        </Loader>
+      </div>
       <div class="specs">
         <div class="title">
           {{theMovie.Title}}
@@ -82,6 +87,11 @@ export default {
             id: this.$route.params.id
         });
     },
+    data(){
+      return{
+        imageLoading:true
+      }
+    },
     components: { Loader },
     computed:{
       theMovie(){
@@ -93,7 +103,12 @@ export default {
     },
     methods:{
       reqestDiffSizeImage(url, size = 700){
-        return url.replace('SX300', `SX${size}`)
+        const src = url.replace('SX300', `SX${size}`);
+        this.$loadImage(src)
+          .then(()=>{
+            this.imageLoading = false
+          })
+        return src
       }
     }
 }
@@ -143,6 +158,7 @@ export default {
   display: flex;
   color: $gray-600;
   .poster {
+    flex-shrink: 0;
     width: 500px;
     height: 500px * 3/2;
     margin-right: 70px;
@@ -151,7 +167,6 @@ export default {
     background-size: cover;
     background-position: center;
     position: relative;
-    flex-shrink: 0;
   }
   .specs {
     flex-grow: 1;
