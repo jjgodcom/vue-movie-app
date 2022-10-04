@@ -1,21 +1,22 @@
 <template>
-  <div
-   class="movie"
-   :style="{backgroundImage:`url(${movie.Poster})`}" >
-   <Loader
-    v-if="imageLoading"
-    :size="1.5"
-    absolute>
-   </Loader>
-   <div class="info">
-    <div class="year">
-      {{movie.Year}}
+  <RouterLink
+    :to="`/movie/${movie.imdbID}`"
+    class="movie"
+    :style="{backgroundImage:`url(${movie.Poster})`}" >
+    <Loader
+      v-if="imageLoading"
+      :size="1.5"
+      absolute>
+    </Loader>
+    <div class="info">
+      <div class="year">
+        {{movie.Year}}
+      </div>
+      <div class="title">
+        {{movie.Title}}
+      </div>
     </div>
-    <div class="title">
-      {{movie.Title}}
-    </div>
-   </div>
-  </div>
+  </RouterLink>
 </template>
 
 <script>
