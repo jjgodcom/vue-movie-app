@@ -10,6 +10,9 @@ export default createRouter({
   // 특정페이지에서 새로고침시 404방지
   // History 모드는 따로 서버에 세팅이 필요하기때문에 이 프로젝트에서는 Hash 모드 사용
   history: createWebHashHistory(),
+  scrollBehavior(){
+    return { top:0 }
+  },
   // routes 는 배열 데이터로 만들기
   // routes 는 페이지를 구분해주는 개념
   routes: [

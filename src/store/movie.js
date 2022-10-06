@@ -28,6 +28,8 @@ export default {
     },
     resetMovies(state){
       state.movies = []
+      state.message = '영화 시리즈 를 먼저 검색하세요'
+      state.loading = false
     }
   },
   // 비동기로 동작
