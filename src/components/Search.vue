@@ -86,6 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~/scss/main";
 .container {
   display: flex;
   > * {
@@ -111,6 +112,23 @@ export default {
     font-weight: 700;
     flex-shrink: 0; 
     // flex-shrink: 1; 인경우 비율이 감소하니깐 0으로 변경해서 절대 감소하지 않겟다고 설정
+  }
+  @include media-breakpoint-down(lg){
+    display: block;
+    input{
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    .selects{
+      margin-right: 0;
+      margin-bottom: 10px;
+      select{
+        width: 100%;
+      }
+    }
+    .btn{
+        width: 100%;
+      }
   }
 }
 </style>
