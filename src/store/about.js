@@ -6,6 +6,6 @@ export default {
     name: 'JJGODCOM',
     email: 'jjgodcom1@gmail.com',
     site: 'http://jjgodcom.com/',
-    image: 'http://jjgodcom.com/resources/images/global/logo.png',
+    image: 'https://raw.githubusercontent.com/jjgodcom/vue-jjgodcom.com/master/src/assets/common/logo.png',
   })
 }
